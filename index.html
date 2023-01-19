@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>HexClock</title>
+</head>
+
+<body>
+    <div id="clock">
+        <div id="hashtag">#</div>
+        <div id="hour">00</div>
+        <div id="minute">00</div>
+        <div id="second">00</div>
+    </div>
+
+    <script>
+        setInterval(function () {
+            const body = document.querySelector("body");
+
+            var date = new Date();
+
+            var hour = date.getHours().toString().padStart(2, '0');
+            var minute = date.getMinutes().toString().padStart(2, '0');
+            var second = date.getSeconds().toString().padStart(2, '0');
+
+            document.getElementById('hour').innerHTML = hour;
+            document.getElementById('minute').innerHTML = minute;
+            document.getElementById('second').innerHTML = second;
+
+            body.style.backgroundColor = "#"+hour+minute+second; // Meni barvu podle casu
+        }, 1000); // Spousti se kazdych 1000 milisekund (1 sekundu)
+    </script>
+
+</body>
+
+</html>
